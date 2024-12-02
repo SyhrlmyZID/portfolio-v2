@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>Linux Terminal</title>
+
+    <!-- Cdn Tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Css -->
+    <style>
+        #terminal {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+        }
+    </style>
+
+</head>
+<body class="bg-[#0D1117] text-gray-300 flex items-center justify-center min-h-screen">
+
+    <div class="w-full max-w-4xl mx-auto bg-gray-800 shadow-lg border border-gray-700">
+        
+        <!-- Header -->
+        <div class="bg-[#010409] px-4 py-2 flex items-center justify-between">
+            <div class="flex space-x-2">
+                <span class="w-4 h-4 bg-red-500 rounded-full"></span>
+                <span class="w-4 h-4 bg-yellow-500 rounded-full"></span>
+                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+            </div>
+            <div class="text-gray-400 text-xs uppercase">Linux Terminal</div>
+        </div>
+
+        <!-- Terminal Body -->
+        <div id="terminal" class="p-4 space-y-4 min-h-[50vh] bg-[#0D1117]">
+            <!-- Static Welcome Section -->
+            <div id="welcome" class="whitespace-pre text-green-400 font-bold">
+███████╗██╗   ██╗██╗  ██╗██████╗ ██╗     ███╗   ███╗██╗   ██╗███████╗██╗██████╗ 
+██╔════╝╚██╗ ██╔╝██║  ██║██╔══██╗██║     ████╗ ████║╚██╗ ██╔╝╚══███╔╝██║██╔══██╗
+███████╗ ╚████╔╝ ███████║██████╔╝██║     ██╔████╔██║ ╚████╔╝   ███╔╝ ██║██║  ██║
+╚════██║  ╚██╔╝  ██╔══██║██╔══██╗██║     ██║╚██╔╝██║  ╚██╔╝   ███╔╝  ██║██║  ██║
+███████║   ██║   ██║  ██║██║  ██║███████╗██║ ╚═╝ ██║   ██║   ███████╗██║██████╔╝
+╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝   ╚═╝   ╚══════╝╚═╝╚═════╝
+<p class="text-gray-300 font-extralight mt-2">Selamat datang di portfolio terminal SyhrlmyZID. Masukkan <span class="text-green-400">help</span> untuk menampilkan menu.</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Javascript Connect -->
+    <script src="assets/js/index.js"></script>
+
+</body>
+</html>
