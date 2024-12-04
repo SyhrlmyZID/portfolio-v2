@@ -1,64 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title -->
     <title>SyhrlmyZID | Portfolio V2</title>
-
-    <!-- Cdn Tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom Css -->
     <style>
-        #terminal {
-            max-height: 60vh;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+        /* General Styling */
         body {
             font-family: 'Ubuntu Mono', monospace;
         }
+
+        /* Terminal Styling */
+        #terminal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 80%;
+            min-width: 320px;
+            min-height: 200px;
+            background-color: #0D1117;
+            border: 1px solid #555;
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            resize: both;
+        }
+
+        #terminal-header {
+            cursor: move;
+            background-color: #010409;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ccc;
+        }
+
+        #terminal {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            color: #00ff00;
+            background-color: #0D1117;
+        }
+
+        /* Footer Styling */
+        #footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #0D1117;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            color: #fff;
+        }
+
+        #footer-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #footer-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #cmd-logo {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .icon:hover {
+            color: gray;
+        }
     </style>
-
 </head>
-<body class="bg-[#0D1117] text-gray-300 flex items-center justify-center min-h-screen">
+<body class="bg-[#0D1117] text-gray-300">
 
-    <div class="w-full max-w-4xl mx-auto bg-gray-800 shadow-lg border border-gray-700">
-        
-        <!-- Header -->
-        <div class="bg-[#010409] px-4 py-2 flex items-center justify-between">
-            <div class="flex space-x-2">
-                <span class="w-4 h-4 bg-red-500 rounded-full"></span>
-                <span class="w-4 h-4 bg-yellow-500 rounded-full"></span>
-                <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+    <!-- Terminal -->
+    <div id="terminal-container" class="shadow-lg">
+        <div id="terminal-header">
+            <div class="flex items-center space-x-2">
+                <span class="icon close-btn">
+                    <i class="fas fa-times"></i>
+                </span>
+                <span class="icon minimize-btn">
+                    <i class="fas fa-window-minimize"></i>
+                </span>
+                <span class="icon fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                </span>
             </div>
-            <div class="text-gray-400 text-xs uppercase">Linux Terminal</div>
+            <span>Linux Terminal</span>
         </div>
-
-        <!-- Terminal Body -->
-        <div id="terminal" class="p-4 space-y-4 min-h-[50vh] bg-[#0D1117]">
-            <!-- Static Welcome Section -->
-            <div id="welcome" class="whitespace-pre text-green-400 font-bold">
+        <div id="terminal">
+            <div class="whitespace-pre text-green-400 font-bold">
 ███████╗██╗   ██╗██╗  ██╗██████╗ ██╗     ███╗   ███╗██╗   ██╗███████╗██╗██████╗ 
 ██╔════╝╚██╗ ██╔╝██║  ██║██╔══██╗██║     ████╗ ████║╚██╗ ██╔╝╚══███╔╝██║██╔══██╗
 ███████╗ ╚████╔╝ ███████║██████╔╝██║     ██╔████╔██║ ╚████╔╝   ███╔╝ ██║██║  ██║
 ╚════██║  ╚██╔╝  ██╔══██║██╔══██╗██║     ██║╚██╔╝██║  ╚██╔╝   ███╔╝  ██║██║  ██║
 ███████║   ██║   ██║  ██║██║  ██║███████╗██║ ╚═╝ ██║   ██║   ███████╗██║██████╔╝
 ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝   ╚═╝   ╚══════╝╚═╝╚═════╝
-<p class="text-gray-300 font-extralight mt-2">Selamat datang di portfolio terminal SyhrlmyZID. Masukkan <span class="text-green-400">help</span> untuk menampilkan menu.</p>
             </div>
+            <p class="text-gray-300 font-light mt-2">Selamat datang di portfolio terminal SyhrlmyZID. Masukkan <span class="text-green-400">help</span> untuk menampilkan menu.</p>
         </div>
-
     </div>
 
+    <!-- Footer -->
+    <div id="footer-bar">
+        <!-- Left Section -->
+        <div id="footer-left">
+            <img id="cmd-logo" src="assets/img/logo-cmd.png" alt="CMD Logo">
+        </div>
 
+        <!-- Right Section -->
+        <div id="footer-right">
+            <span id="battery-status">100%</span>
+            <span id="volume-status">🔊</span>
+            <span id="time-status"></span>
+        </div>
+    </div>
 
-    <!-- Javascript Connect -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const terminalContainer = document.getElementById('terminal-container');
+            const cmdLogo = document.getElementById('cmd-logo');
+            const closeBtn = document.querySelector('.close-btn');
+            const minimizeBtn = document.querySelector('.minimize-btn');
+            const fullscreenBtn = document.querySelector('.fullscreen-btn');
+
+            // Toggle Terminal
+            cmdLogo.addEventListener('click', () => {
+                terminalContainer.style.display = terminalContainer.style.display === 'none' || terminalContainer.style.display === '' ? 'flex' : 'none';
+            });
+
+            // Drag Terminal
+            const header = document.getElementById('terminal-header');
+            let isDragging = false, offsetX, offsetY;
+
+            header.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                offsetX = e.clientX - terminalContainer.offsetLeft;
+                offsetY = e.clientY - terminalContainer.offsetTop;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    terminalContainer.style.left = `${e.clientX - offsetX}px`;
+                    terminalContainer.style.top = `${e.clientY - offsetY}px`;
+                }
+            });
+
+            document.addEventListener('mouseup', () => isDragging = false);
+
+            // Close Button Logic
+            closeBtn.addEventListener('click', () => terminalContainer.style.display = 'none');
+
+            // Minimize Button Logic
+            minimizeBtn.addEventListener('click', () => {
+                const terminalBody = document.getElementById('terminal');
+                terminalBody.style.display = terminalBody.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Fullscreen Button Logic
+            fullscreenBtn.addEventListener('click', () => {
+                if (terminalContainer.style.width === '100%') {
+                    terminalContainer.style.width = '';
+                    terminalContainer.style.height = '';
+                    terminalContainer.style.transform = 'translate(-50%, -50%)';
+                } else {
+                    terminalContainer.style.width = '100%';
+                    terminalContainer.style.height = '100%';
+                    terminalContainer.style.transform = 'none';
+                }
+            });
+
+            // Battery Status
+            const batteryStatus = document.getElementById('battery-status');
+            navigator.getBattery().then((battery) => {
+                function updateBatteryStatus() {
+                    batteryStatus.textContent = `${Math.round(battery.level * 100)}%`;
+                }
+                updateBatteryStatus();
+                battery.addEventListener('levelchange', updateBatteryStatus);
+            });
+
+            // Time Status
+            const timeStatus = document.getElementById('time-status');
+            function updateTime() {
+                const now = new Date();
+                timeStatus.textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+    </script>
+
     <script src="assets/js/index.js"></script>
 
 </body>
